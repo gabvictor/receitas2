@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+}
+h1, h2 {
+    color: #333;
+} 
+.botao-direito {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    display: inline-block;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.botao-direito:hover {
+    background-color: #45a049;
+    transform: scale(1.05); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
