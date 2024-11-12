@@ -35,26 +35,51 @@
 
         <div class="modo-preparo mt-4">
             <h2 class="fw-semibold">Modo de Preparo</h2>
-            <ol class="list-group list-group-numbered">
-                <li class="list-group-item">Dissolva o fermento no açúcar, acrescente metade da água morna, mexa bem e incorpore o sal, a manteiga e o ovo.</li>
-                <li class="list-group-item">Despeje a farinha peneirada e o restante da água aos poucos, regulando para a massa chegar ao ponto de desgrudar das mãos.</li>
-                <li class="list-group-item">Coloque toda a água somente se necessário.</li>
-                <li class="list-group-item">Essa massa fica meio mole.</li>
-                <li class="list-group-item">Trabalhe bem a massa por aproximadamente 20 minutos.</li>
-                <li class="list-group-item">Coloque para descansar em local protegido da luz e do vento até dobrar de volume.</li>
-                <li class="list-group-item">Fure a massa para abaixar e modele os pães.</li>
-                <li class="list-group-item">Acomode-os em uma assadeira untada e deixe dobrar de volume em local protegido da luz e do vento.</li>
-                <li class="list-group-item">Asse em forno pré-aquecido a 180°C até dourar.</li>
-            </ol>
+            <div id="step-1" class="list-group-item">Dissolva o fermento no açúcar, acrescente metade da água morna, mexa bem e incorpore o sal, a manteiga e o ovo.</div>
+            <div id="step-2" class="list-group-item d-none">Despeje a farinha peneirada e o restante da água aos poucos, regulando para a massa chegar ao ponto de desgrudar das mãos.</div>
+            <div id="step-3" class="list-group-item d-none">Coloque toda a água somente se necessário.</div>
+            <div id="step-4" class="list-group-item d-none">Essa massa fica meio mole.</div>
+            <div id="step-5" class="list-group-item d-none">Trabalhe bem a massa por aproximadamente 20 minutos.</div>
+            <div id="step-6" class="list-group-item d-none">Coloque para descansar em local protegido da luz e do vento até dobrar de volume.</div>
+            <div id="step-7" class="list-group-item d-none">Fure a massa para abaixar e modele os pães.</div>
+            <div id="step-8" class="list-group-item d-none">Acomode-os em uma assadeira untada e deixe dobrar de volume em local protegido da luz e do vento.</div>
+            <div id="step-9" class="list-group-item d-none">Asse em forno pré-aquecido a 180°C até dourar.</div>
         </div>
 
-        <div class="text-end mt-4">
-            <a href="../">
-                <button class="botao-direito">Voltar</button>
-            </a>
+        <div class="text-center mt-4">
+            <button onclick="showPreviousStep()" class="btn btn-secondary me-2">Passo Anterior</button>
+            <button onclick="showNextStep()" class="btn btn-primary">Próximo Passo</button>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeo3lCW9OwwlbICd0J8qU+N47B9kAdvooI1BfAUcKaZHpbro" crossorigin="anonymous"></script>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeo3lCW9OwwlbICd0J8qU+N47B9kAdvooI1BfAUcKaZHpbro" crossorigin="anonymous"></script>
+    <script>
+        let currentStep = 1;
+
+        function showNextStep() {
+            const current = document.getElementById(`step-${currentStep}`);
+            current.classList.add('d-none');  // Esconde o passo atual
+            currentStep++;
+            const next = document.getElementById(`step-${currentStep}`);
+            if (next) {
+                next.classList.remove('d-none');  // Mostra o próximo passo
+            } else {
+                alert('Receita concluída!');
+                currentStep--;  // Impede que passe do último passo
+            }
+        }
+
+        function showPreviousStep() {
+            if (currentStep > 1) {
+                const current = document.getElementById(`step-${currentStep}`);
+                current.classList.add('d-none');  // Esconde o passo atual
+                currentStep--;
+                const previous = document.getElementById(`step-${currentStep}`);
+                previous.classList.remove('d-none');  // Mostra o passo anterior
+            }
+        }
+    </script>
 </body>
 </html>
