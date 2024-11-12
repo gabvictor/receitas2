@@ -60,24 +60,24 @@
 
         function showNextStep() {
             const current = document.getElementById(`step-${currentStep}`);
-            current.classList.add('d-none');  // Esconde o passo atual
+            current.classList.add('d-none');
             currentStep++;
             const next = document.getElementById(`step-${currentStep}`);
             if (next) {
-                next.classList.remove('d-none');  // Mostra o próximo passo
+                next.classList.remove('d-none');  
             } else {
                 alert('Receita concluída!');
-                currentStep--;  // Impede que passe do último passo
+                currentStep--;
             }
         }
 
         function showPreviousStep() {
             if (currentStep > 1) {
                 const current = document.getElementById(`step-${currentStep}`);
-                current.classList.add('d-none');  // Esconde o passo atual
+                current.classList.add('d-none');
                 currentStep--;
                 const previous = document.getElementById(`step-${currentStep}`);
-                previous.classList.remove('d-none');  // Mostra o passo anterior
+                previous.classList.remove('d-none'); 
             }
         }
     </script>
